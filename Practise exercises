@@ -1,1 +1,26 @@
-1.Fibonacci Series
+//Fibonacci series-sum of previous two
+// base cases : mem[0]=0,mem[1]=1
+//input is assigned to n=10
+//output : 0    1     1    2    3     5     8     13     21     34      55
+using System;
+class Program
+{
+   public static int j = 2;
+   public static int[] mem = new int[50]; //array to memorize previous two numbers in series
+   static void Main(string[] args)
+   {
+       int n = 10;    
+       mem[0] = 0;
+       mem[1] = 1;
+       int sum=fibo(n);     //fibo(n) function is called
+       for(int i = 0; i < j; i++) {Console.Write("\t"+mem[i]);}   //output displayed here
+   }
+   public static int fibo(int n){
+        if (n == 0){return mem[0];}
+        if (n == 1){return mem[1];}
+        if (n < j){return mem[n];}
+        mem[n] = fibo(n - 1) + fibo(n - 2);
+        j++;
+        return mem[n];
+    }
+}
